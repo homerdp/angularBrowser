@@ -6,9 +6,10 @@
     <title></title>
 </head>
 <body >
-    <div ng-controller="browserCtrl">
-        <span ng-bind="directoryInfo.CountMinFiles"></span>
-        <span ng-bind="directoryInfo.InitialPath"></span>
+    <div ng-controller="dirFilesCountCtrl">
+        <span ng-bind="minMaxCount.CountMinFiles"></span>
+        
+             
     </div>
     
     <div ng-view></div>
@@ -16,9 +17,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-resource.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js"></script>
-   
     <script src="ClientApp/Module/mainModule.js"></script>
     <script src="ClientApp/Services/browserSrv.js"></script>
+    <script src="ClientApp/Controllers/initDirCtrl.js"></script>
+    <script src="ClientApp/Controllers/dirFilesCountCtrl.js"></script>
     <script src="ClientApp/Controllers/browserCtrlt.js"></script>
     
 </body>

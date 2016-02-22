@@ -113,6 +113,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientApp\Content\browser.css" />
+    <Content Include="ClientApp\Controllers\dirFilesCountCtrl.js" />
+    <Content Include="ClientApp\Controllers\initDirCtrl.js" />
     <Content Include="ClientApp\Partials\directories.html" />
     <Content Include="ClientApp\Partials\initial.html" />
     <Content Include="Global.asax" />

@@ -4,7 +4,7 @@ browser.config(["$routeProvider", "$compileProvider", function ($routeProvider, 
     $routeProvider.
         when('/', {
             templateUrl: 'ClientApp/partials/initial.html',
-            controller: 'browserCtrl'
+            controller: 'initDirCtrl'
         }).
         when('/:path', {
             templateUrl: 'ClientApp/partials/directories.html',
@@ -13,6 +13,6 @@ browser.config(["$routeProvider", "$compileProvider", function ($routeProvider, 
         otherwise({
             redirectTo: '/'
         });
-    $compileProvider.aHrefSanitizationWhitelist(/^(?:[\w]\:)|(https?|ftp|mailto|file|javascript|filesystem:chrome-extension|):/);
-   
+    $compileProvider.aHrefSanitizationWhitelist(/^(?:[\w]\:)|(https?|ftp|mailto|file|javascript|chrome-extension):/);
+    
 }]);
