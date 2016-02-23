@@ -13,6 +13,6 @@ browser.config(["$routeProvider", "$compileProvider", function ($routeProvider, 
         otherwise({
             redirectTo: '/'
         });
-    $compileProvider.aHrefSanitizationWhitelist(/^(?:[\w]\:)|(https?|ftp|mailto|file|javascript|chrome-extension):/);
-    
+    $compileProvider.aHrefSanitizationWhitelist(/^(?:[\w]\:)|(https?|ftp|mailto|file|javascript|filesystem:chrome-extension|):/);
+   
 }]);

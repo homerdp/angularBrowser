@@ -117,11 +117,19 @@
     <Content Include="ClientApp\Controllers\initDirCtrl.js" />
     <Content Include="ClientApp\Partials\directories.html" />
     <Content Include="ClientApp\Partials\initial.html" />
+    <Content Include="ClientApp\Content\bootstrap.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
     <Content Include="ClientApp\Controllers\browserCtrlt.js" />
     <Content Include="ClientApp\Module\mainModule.js" />
     <Content Include="ClientApp\Services\browserSrv.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="ClientApp\JS\bootstrap.min.js" />
+    <Content Include="ClientApp\JS\jquery-1.9.1.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

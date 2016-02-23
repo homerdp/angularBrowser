@@ -1,19 +1,38 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="browser">
 <head>
-
+    <link rel="shortcut icon" href="">
     <link href="ClientApp/Content/browser.css" rel="stylesheet" />
+    <link href="ClientApp/Content/bootstrap.css" rel="stylesheet" />
     <title></title>
 </head>
 <body >
-    <div ng-controller="dirFilesCountCtrl">
-        <span ng-bind="minMaxCount.CountMinFiles"></span>
+    <div class="container">
         
-             
-    </div>
-    
-    <div ng-view></div>
+            <table ng-controller="dirFilesCountCtrl" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Less 10MB</th>
+                        <th>10MB - 50MB</th>
+                        <th>More 100MB</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span ng-bind="minMaxCount.CountLessFiles"></span></td>
+                        <td><span ng-bind="minMaxCount.CountBetweenFiles"></span></td>
+                        <td><span ng-bind="minMaxCount.CountMoreFiles"></span></td>
+                    </tr>
+                </tbody>
 
+            </table>
+           
+        
+
+        <div ng-view></div>
+    </div>
+    <script src="ClientApp/JS/jquery-1.9.1.min.js"></script>
+    <script src="ClientApp/JS/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-resource.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js"></script>

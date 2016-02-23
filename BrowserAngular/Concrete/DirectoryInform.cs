@@ -34,49 +34,27 @@ namespace BrowserAngular.Concrete
             
         }
 
-        public List<string> GetDirectories(string path)
-        {
-            List<string> directList = new List<string>();
-            try
-            {
-                DirectoryInfo dir = new DirectoryInfo(path);
-                foreach (var item in dir.GetDirectories())
-                {
-                    directList.Add(item.Name);
-                }   
-            }
-            catch (ArgumentNullException ex) { }
-            catch (ArgumentException ex) { }
-            catch (System.Security.SecurityException ex) { }
-            catch (PathTooLongException ex) { }
+        //public List<string> GetDirectories(string path)
+        //{
+        //    List<string> directList = new List<string>();
+        //    try
+        //    {
+        //        DirectoryInfo dir = new DirectoryInfo(path);
+        //        foreach (var item in dir.GetDirectories())
+        //        {
+        //            directList.Add(item.Name);
+        //        }   
+        //    }
+        //    catch (ArgumentNullException ex) { }
+        //    catch (ArgumentException ex) { }
+        //    catch (System.Security.SecurityException ex) { }
+        //    catch (PathTooLongException ex) { }
                                                                
 
-            return directList;
-        }
+        //    return directList;
+        //}
 
-        public long GetMinCountFiles(string path, long number)
-        {
-            long count = 0;
-            try
-            {
-                DirectoryInfo dir = new DirectoryInfo(path);
-                IEnumerable<FileInfo> filesInfo = dir.EnumerateFiles("*", SearchOption.AllDirectories);
-                foreach (var info in filesInfo)
-                {
-                    if (info.Length < number)
-                    {
-                        count++;
-                    }
-                }
-            }
-            catch(ArgumentNullException ex) { }
-            catch(ArgumentException ex) { }
-            catch(System.Security.SecurityException ex) { }
-            catch(PathTooLongException ex) { }
-            catch(DirectoryNotFoundException ex) { }
-            catch (System.UnauthorizedAccessException ex) { }
-            return count;
-        }
+       
 
         public List<string> GetDirectoriesList(string path)
         {
@@ -116,5 +94,86 @@ namespace BrowserAngular.Concrete
             return dirList;
             
         }
+        /////////////////////////////////////
+        public long GetLessCount(string path, long searchValue)
+        {
+            long folderSize = 0;
+            GetFileSize(path, ref folderSize, searchValue, 0, true);
+            return folderSize;
+
+        }
+        public long GetMoreCount(string path, long searchValue)
+        {
+            long folderSize = 0;
+            GetFileSize(path, ref folderSize, 0, searchValue, false, false, true);
+            return folderSize;
+
+        }
+        public long GetBetweenCount(string path, long searchValue1, long searchValue2)
+        {
+            long folderSize = 0;
+            GetFileSize(path, ref folderSize, searchValue1, searchValue2, false, true);
+            return folderSize;
+
+        }
+
+        public void GetFileSize(string path, ref long size, long searchValue1, long searchValue2 = 0, bool less = false, bool between = false, bool more = false)
+        {
+            try
+            {
+                string[] files = System.IO.Directory.GetFiles(path);
+                foreach (string file in files)
+                {
+                    if (less)
+                    {
+                        System.IO.FileInfo fi = new System.IO.FileInfo(file);
+                        if (fi.Length <= searchValue1)
+                            size++;
+                    }
+                    if (between)
+                    {
+                        System.IO.FileInfo fi = new System.IO.FileInfo(file);
+                        if (fi.Length > searchValue1 && fi.Length <= searchValue2)
+                            size++;
+                    }
+                    if (more)
+                    {
+                        System.IO.FileInfo fi = new System.IO.FileInfo(file);
+                        if (fi.Length >= searchValue2)
+                            size++;
+                    }
+
+                }
+                string[] subDirs = System.IO.Directory.GetDirectories(path);
+                foreach (string dir in subDirs)
+                {
+                    if (less)
+                        GetFileSize(dir, ref size, searchValue1, 0, true);
+                    if (between)
+                        GetFileSize(dir, ref size, searchValue1, searchValue2, false, true);
+                    if (more)
+                        GetFileSize(dir, ref size, 0, searchValue2, false, false, true);
+                }
+
+            }
+           
+            catch (ArgumentNullException ex) { }
+            catch (ArgumentException ex) { }
+            catch (System.Security.SecurityException ex) { }
+            catch (PathTooLongException ex) { }
+            catch (UnauthorizedAccessException ex) { }
+            catch (NotSupportedException ex) { }
+            catch (DirectoryNotFoundException ex) { }
+        }
+
+
+
+
+
+
+
+
+
+
     }
 }

@@ -12,7 +12,9 @@ namespace BrowserAngular.Controllers
     public class DirController : ApiController
     {
         IDirectory _directory;
-        const long MinSize = 10737418240;  //10Mb
+        const long MinValue = 10485760;  //10Mb
+        const long BetweenValue = 52428800; //50Mb
+        const long MaxValue = 104857600; //100Mb
         public DirController(IDirectory directory)
         {
             _directory = directory;
@@ -23,9 +25,11 @@ namespace BrowserAngular.Controllers
         {
             DirectoryInfoModel dirModel = new DirectoryInfoModel();
             dirModel.InitialPath = _directory.GetInitialtDirectories();
-            dirModel.CountMinFiles = _directory.GetMinCountFiles(_directory.GetInitialtDirectories()[0], MinSize);
-            dirModel.DirectoriesList = _directory.GetDirectoriesList(_directory.GetInitialtDirectories()[0]);
-            dirModel.FilesList = _directory.GetFilesList(_directory.GetInitialtDirectories()[0]);
+            //dirModel.CountLessFiles = _directory.GetLessCount(@"C:\IIS", MinValue);
+            //dirModel.CountBetweenFiles = _directory.GetBetweenCount(@"C:\IIS", MinValue, BetweenValue);
+            //dirModel.CountMoreFiles = _directory.GetMoreCount(@"C:\IIS", MaxValue);
+            //dirModel.DirectoriesList = _directory.GetDirectoriesList(_directory.GetInitialtDirectories()[0]);
+            //dirModel.FilesList = _directory.GetFilesList(_directory.GetInitialtDirectories()[0]);
 
 
             return dirModel;
@@ -37,7 +41,9 @@ namespace BrowserAngular.Controllers
         {
             DirectoryInfoModel dirModel = new DirectoryInfoModel();
             dirModel.InitialPath.Add(path);
-            dirModel.CountMinFiles = _directory.GetMinCountFiles(path, MinSize);
+            dirModel.CountLessFiles = _directory.GetLessCount(@"C:\IIS\Admin", MinValue);
+            dirModel.CountBetweenFiles = _directory.GetBetweenCount(@"C:\IIS\Admin", MinValue, BetweenValue);
+            dirModel.CountMoreFiles = _directory.GetMoreCount(@"C:\IIS\Admin", MaxValue);
             dirModel.DirectoriesList = _directory.GetDirectoriesList(path);
             dirModel.FilesList = _directory.GetFilesList(path);
             return dirModel;

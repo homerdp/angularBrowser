@@ -98,4 +98,3 @@ C:\Users\Homer\Desktop\angularbrowser\BrowserAngular\bin\System.Web.Http.xml
 C:\Users\Homer\Desktop\angularbrowser\BrowserAngular\bin\System.Web.Http.WebHost.xml
 C:\Users\Homer\Desktop\angularbrowser\BrowserAngular\obj\Debug\BrowserAngular.dll
 C:\Users\Homer\Desktop\angularbrowser\BrowserAngular\obj\Debug\BrowserAngular.pdb
-C:\Users\Homer\Desktop\angularbrowser\BrowserAngular\obj\Debug\BrowserAngular.csprojResolveAssemblyReference.cache
