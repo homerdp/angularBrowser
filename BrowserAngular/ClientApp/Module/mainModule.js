@@ -1,4 +1,4 @@
-﻿var browser = angular.module("browser", ["ngRoute","browserServices"]);
+﻿var browser = angular.module("browserApp", ["ngRoute","browserServices"]);
 
 browser.config(["$routeProvider", "$compileProvider", function ($routeProvider, $compileProvider) {
     $routeProvider.

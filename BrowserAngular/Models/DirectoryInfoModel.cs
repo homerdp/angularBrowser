@@ -11,9 +11,5 @@ namespace BrowserAngular.Models
         public List<string> InitialPath = new List<string>();
         public List<string> FilesList = new List<string>();
         public List<string> DirectoriesList = new List<string>();
-        public long CountLessFiles { get; set; }
-        public long CountBetweenFiles { get; set; }
-        public long CountMoreFiles { get; set; }
- 
     }
 }

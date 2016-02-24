@@ -1,15 +1,15 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" ng-app="browser">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="browserApp">
 <head>
     <link rel="shortcut icon" href="">
     <link href="ClientApp/Content/browser.css" rel="stylesheet" />
     <link href="ClientApp/Content/bootstrap.css" rel="stylesheet" />
     <title></title>
 </head>
-<body >
-    <div class="container">
-        
-            <table ng-controller="dirFilesCountCtrl" class="table table-bordered">
+<body>
+    <div ng-cloak class="container">
+        <div class="info" ng-controller="filesCountCtrl">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Less 10MB</th>
@@ -19,15 +19,29 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><span ng-bind="minMaxCount.CountLessFiles"></span></td>
-                        <td><span ng-bind="minMaxCount.CountBetweenFiles"></span></td>
-                        <td><span ng-bind="minMaxCount.CountMoreFiles"></span></td>
+                        <td>
+                            <span ng-show="path" ng-bind="minMaxCount.CountLessFiles"></span>
+                            <span ng-hide="!path || minMaxCount.CountBetweenFiles >= 0 "><img src="ClientApp/Content/Pictures/loading.gif" /></span>
+                            <span ng-show="!path">---</span>
+                        </td>
+                        <td>
+                            <span ng-show="path" ng-bind="minMaxCount.CountBetweenFiles"></span>
+                            <span ng-hide="!path || minMaxCount.CountBetweenFiles >= 0  "><img src="ClientApp/Content/Pictures/loading.gif" /></span>
+                            <span ng-show="!path">---</span>
+                        </td>
+                        <td>
+                            <span ng-show="path" ng-bind="minMaxCount.CountMoreFiles"></span>
+                            <span ng-hide="!path || minMaxCount.CountBetweenFiles >= 0 "><img src="ClientApp/Content/Pictures/loading.gif" /></span>
+                            <span ng-show="!path">---</span>
+                        </td>
                     </tr>
                 </tbody>
 
             </table>
-           
-        
+            <span class="currentPath">Current Path:</span>
+            <span>{{currentPath}}</span>
+
+        </div>
 
         <div ng-view></div>
     </div>
@@ -39,8 +53,8 @@
     <script src="ClientApp/Module/mainModule.js"></script>
     <script src="ClientApp/Services/browserSrv.js"></script>
     <script src="ClientApp/Controllers/initDirCtrl.js"></script>
-    <script src="ClientApp/Controllers/dirFilesCountCtrl.js"></script>
+    <script src="ClientApp/Controllers/filesCountCtrl.js"></script>
     <script src="ClientApp/Controllers/browserCtrlt.js"></script>
-    
+
 </body>
 </html>

@@ -2,10 +2,8 @@
     <li ng-cloak ng-repeat="dir in directoryInfo.DirectoriesList">
         <a ng-href="#/{{directoryInfo.InitialPath +'\\' + dir}}" ng-click="getDirInfoByPath(directoryInfo.InitialPath+'\\'+dir)">{{dir}}</a>
     </li>
+    <li ng-cloak ng-repeat="dir in directoryInfo.FilesList">
+        <a ng-href="#">{{dir}}</a>
+    </li>
 </ul>
 
-
-<div ng-repeat="dir in directoryInfo.FilesList">
-
-    <span ng-bind="dir"></span>
-</div>

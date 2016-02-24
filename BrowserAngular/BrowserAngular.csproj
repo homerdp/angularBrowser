@@ -113,7 +113,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientApp\Content\browser.css" />
-    <Content Include="ClientApp\Controllers\dirFilesCountCtrl.js" />
+    <Content Include="ClientApp\Content\Pictures\loading.gif" />
+    <Content Include="ClientApp\Controllers\filesCountCtrl.js" />
     <Content Include="ClientApp\Controllers\initDirCtrl.js" />
     <Content Include="ClientApp\Partials\directories.html" />
     <Content Include="ClientApp\Partials\initial.html" />
@@ -137,14 +138,15 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Concrete\DirectoryInform.cs" />
+    <Compile Include="Controllers\CountController.cs" />
     <Compile Include="Controllers\DirController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectScope.cs" />
     <Compile Include="Infrastructure\NinjectResolver.cs" />
+    <Compile Include="Models\CountModel.cs" />
     <Compile Include="Models\DirectoryInfoModel.cs" />
-    <Compile Include="Models\TestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

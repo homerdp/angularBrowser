@@ -31,3 +31,19 @@ table{
 .table th {
     font-weight: bold;
 }
+div.info{
+    margin-bottom: 50px;
+}
+span.currentPath{
+    font-weight: bold;
+    font-size: 20px;
+}
+span.currentPath + span{
+    font-size: 20px;
+    color: #b5b3b3;
+} 
+
+li{
+    list-style-type: none;
+    font-size: 18px;
+}

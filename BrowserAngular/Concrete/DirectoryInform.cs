@@ -34,28 +34,6 @@ namespace BrowserAngular.Concrete
             
         }
 
-        //public List<string> GetDirectories(string path)
-        //{
-        //    List<string> directList = new List<string>();
-        //    try
-        //    {
-        //        DirectoryInfo dir = new DirectoryInfo(path);
-        //        foreach (var item in dir.GetDirectories())
-        //        {
-        //            directList.Add(item.Name);
-        //        }   
-        //    }
-        //    catch (ArgumentNullException ex) { }
-        //    catch (ArgumentException ex) { }
-        //    catch (System.Security.SecurityException ex) { }
-        //    catch (PathTooLongException ex) { }
-                                                               
-
-        //    return directList;
-        //}
-
-       
-
         public List<string> GetDirectoriesList(string path)
         {
             List<string> dirList = new List<string>();
@@ -165,15 +143,6 @@ namespace BrowserAngular.Concrete
             catch (NotSupportedException ex) { }
             catch (DirectoryNotFoundException ex) { }
         }
-
-
-
-
-
-
-
-
-
 
     }
 }
