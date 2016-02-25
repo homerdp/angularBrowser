@@ -1,4 +1,5 @@
-﻿browser.controller("filesCountCtrl", [
+﻿//Контроллер для подсчета  количества файлов
+browser.controller("filesCountCtrl", [
     "$scope", "$rootScope", "$templateCache", "$routeParams", "browserSrv", function ($scope, $rootScope, $templateCache, $routeParams, browserSrv) {
 
         $rootScope.$on("openRootDirectory", function (event, data) {
@@ -8,7 +9,8 @@
             $scope.currentPath = data;
 
         });
-        $rootScope.$on("openDirectory", function (event, data) {
+
+        $scope.$on("openDirectory", function (event, data) {
             $scope.minMaxCount = browserSrv.getWithPath({ controller: 'count', path: data });
             if ($scope.minMaxCount)
                 $scope.loaded = true;
@@ -18,7 +20,7 @@
         $rootScope.$on("getDirInfoByPath", function (event, data) {
             $scope.minMaxCount = data;
         });
-        $rootScope.$on("moveDirectory", function (event, data) {
+        $scope.$on("moveDirectory", function (event, data) {
             $scope.minMaxCount = browserSrv.getWithPath({ controller: 'count', path: data });
             $scope.currentPath = data;
 

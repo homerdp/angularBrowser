@@ -36,13 +36,10 @@
                         </td>
                     </tr>
                 </tbody>
-
             </table>
             <span class="currentPath">Current Path:</span>
-            <span>{{currentPath}}</span>
-
+            <span ng-bind="currentPath"></span>
         </div>
-
         <div ng-view></div>
     </div>
     <script src="ClientApp/JS/jquery-1.9.1.min.js"></script>

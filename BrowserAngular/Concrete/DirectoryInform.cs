@@ -72,7 +72,7 @@ namespace BrowserAngular.Concrete
             return dirList;
             
         }
-        /////////////////////////////////////
+       
         public long GetLessCount(string path, long searchValue)
         {
             long folderSize = 0;
@@ -95,6 +95,7 @@ namespace BrowserAngular.Concrete
 
         }
 
+        //Получение количества файлов в зависимости от переданного флага
         public void GetFileSize(string path, ref long size, long searchValue1, long searchValue2 = 0, bool less = false, bool between = false, bool more = false)
         {
             try

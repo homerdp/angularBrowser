@@ -10,7 +10,6 @@ namespace BrowserAngular.Abstract
     public interface IDirectory
     {
         List<string> GetInitialtDirectories();
-        //List<string> GetDirectories(string path);
         List<string> GetFilesList(string path);
         List<string> GetDirectoriesList(string path);
         long GetLessCount(string path, long searchValue);
