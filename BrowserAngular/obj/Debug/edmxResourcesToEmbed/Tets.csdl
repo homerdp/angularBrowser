@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Tets" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="TetsContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Customer" EntityType="Tets.Customer" />
+    <EntitySet Name="Order" EntityType="Tets.Order" />
+    <AssociationSet Name="CustomerOrder" Association="Tets.CustomerOrder">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" />
+    <Property Name="LastName" Type="String" Nullable="false" />
+    <Property Name="City" Type="String" Nullable="false" />
+    <Property Name="Age" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Tets.CustomerOrder" FromRole="Customer" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" />
+    <Property Name="Price" Type="String" Nullable="false" />
+    <Property Name="Quantity" Type="String" Nullable="false" />
+    <Property Name="DateOrder" Type="String" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="Tets.CustomerOrder" FromRole="Order" ToRole="Customer" />
+    <Property Name="CustomerCustomerId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="CustomerOrder">
+    <End Type="Tets.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="Tets.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CustomerCustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
