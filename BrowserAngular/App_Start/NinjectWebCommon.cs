@@ -68,6 +68,7 @@ namespace BrowserAngular.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IDirectory>().To<DirectoryInform>();
+            kernel.Bind<IData>().To<DbEntity>();
         }        
     }
 }
